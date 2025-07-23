@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Time Tracker</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .mode-switch {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+
+    .mode-switch button {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      background-color: #b4faf5;
+      color:black;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .mode-switch button:hover {
+      background-color: #f8f395;
+    }
+
+    .website-list {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .website-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .website-list::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
+
+    .website-list::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 3px;
+    }
+
+    .website-list::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+
+    .website-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .website-item:last-child {
+      border-bottom: none;
+    }
+
+    h3, h4 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    input[type="url"],
+    input[type="number"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="mode-switch">
+    <button id="normalModeBtn">Normal Mode</button>
+    <button id="examModeBtn">Exam Mode</button>
+  </div>
+
+  <div id="normalModeSection">
+    <h3>Website Access Time</h3>
+    <div id="websiteList" class="website-list"></div>
+  </div>
+  <div id="signin">
+    <h3>Signin</h3>
+    <button id="invigilatorbtn">Invigilator</button>
+    <button id="studentbtn">Student</button>
+  </div>
+  <div id="invigilatorSection">
+    <!-- <input type="password" name="password" id="Invigilatorpassword" placeholder="Enter password"> -->
+     <input type="text" name="examname" id="examname" placeholder="Enter Exam name">
+     <input type="text" name="examurl" id="examurl" placeholder="Enter Exam Url">
+     <input type="text" name="examcode" id="examcode-invigilator" placeholder="Enter Exam code">
+     <input type="text" name="examduration" id="examduration" placeholder="Enter Exam duration in min">
+    <button id="invigilatorsavebtn">Save</button>
+  </div>
+  <div id="studentSection">
+    <!-- <input type="text" name="text" id="studentpassword" placeholder="Enter Rollno"> -->
+    <input type="text" name="examcode" id="examcode-student" placeholder="Enter Exam code">
+    <button id="studentloginbtn">Enter</button>
+  </div>
+
+  <div id="examModeSection">
+    <h3>Exam details</h3>
+    <p id="examUrldisplay"></p>
+    <p id="examDurationdisplay"></p>
+    <input type="text" name="rollno" id="rollno" placeholder="Enter Rollno">
+    <button id="startExamBtn">Start Exam</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
